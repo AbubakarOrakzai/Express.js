@@ -10,7 +10,7 @@ app.use((req,res,next) => {
     next()
 })
 app.get('/', (req, res) => {
-  res.send('It me Abubakar Orakzai from Orakzai Agency how are you doing?')
+  res.render("index")
 })
 
 

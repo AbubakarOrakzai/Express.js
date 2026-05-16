@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Man - Orakzai Contact</title>
+    <style>
+        :root {
+  --arc-reactor-light: #6fc7e9;
+  --black: #282828;
+  --border: #7d000f;
+  --gold: #f7ba37;
+  --red: #dc1f29;
+  --white: #fefefe;
+}
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+*::after,
+*::before {
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Styled heading */
+.contact-heading {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 2.5rem;
+  color: #dc1f29;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  margin-bottom: 2rem;
+  z-index: 10;
+  text-align: center;
+  letter-spacing: 2px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ironman {
+  height: 80vmin;
+  width: 60vmin;
+  align-items: center;
+  animation: 8.6s ease-in-out infinite levitate;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.ears {
+  height: 10.5%;
+  width: 46%;
+  background-color: #dc1f29;
+  border-radius: 1vmin;
+  clip-path: polygon(
+    5% 0,
+    0 5%,
+    0 95%,
+    5% 100%,
+    95% 100%,
+    100% 95%,
+    100% 5%,
+    95% 0
+  );
+  position: relative;
+  top: 22%;
+}
+.ears::before {
+  height: 100%;
+  width: 100%;
+  background-color: #7d000f;
+  border-radius: inherit;
+  clip-path: polygon(
+    5% 0,
+    0 5%,
+    0 95%,
+    5% 100%,
+    95% 100%,
+    100% 95%,
+    100% 5%,
+    95% 0,
+    95% 4%,
+    98% 7%,
+    98% 93%,
+    95% 96%,
+    5% 96%,
+    2% 93%,
+    2% 7%,
+    5% 4%,
+    95% 4%
+  );
+}
+.helmet {
+  height: 35%;
+  width: 42%;
+  background-color: #f7ba37;
+  border: 0.6vmin solid #7d000f;
+  border-radius: 11vmin;
+  box-shadow: inset 0 0.6vmin 0 0.6vmin #dc1f29,
+    inset 1vmin 2vmin 0 0.6vmin #dc1f29, inset -1vmin 2vmin 0 0.6vmin #dc1f29;
+  overflow: hidden;
+  z-index: 0;
+}
+.helmet-outline {
+  height: 100%;
+  width: 100%;
+  background-color: #dc1f29;
+  clip-path: polygon(
+    40% 100%,
+    34% 84%,
+    21% 77%,
+    10% 51%,
+    20% 25%,
+    36% 16%,
+    40% 33%,
+    60% 33%,
+    64% 16%,
+    80% 25%,
+    90% 52%,
+    79% 77%,
+    65% 84%,
+    60% 100%,
+    100% 100%,
+    100% 0,
+    0% 0%,
+    0 100%
+  );
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+.helmet-outline::after {
+  height: 100%;
+  width: 100%;
+  background-color: #7d000f;
+  clip-path: polygon(
+    40% 100%,
+    34% 84%,
+    21% 77%,
+    10% 51%,
+    20% 25%,
+    36% 16%,
+    40% 33%,
+    60% 33%,
+    64% 16%,
+    80% 25%,
+    90% 52%,
+    79% 77%,
+    65% 84%,
+    60% 100%,
+    62% 100%,
+    67% 84%,
+    81% 77%,
+    92% 52%,
+    82% 25%,
+    63% 14%,
+    59% 32%,
+    41% 32%,
+    37% 14%,
+    18% 25%,
+    8% 51%,
+    19% 77%,
+    32% 84%,
+    38% 100%
+  );
+}
+.helmet-outline::before {
+  height: 90%;
+  width: 75%;
+  border-top: 0.4vmin solid #7d000f;
+  border-radius: 100%;
+  left: 12.5%;
+  top: 20%;
+}
+.helmet .eyebrowns-line {
+  height: 70%;
+  width: 200%;
+  background-color: #f7ba37;
+  border-bottom: 0.6vmin solid #7d000f;
+  border-radius: 100%;
+  top: -20%;
+  left: -50%;
+  position: absolute;
+  z-index: 1;
+}
+.helmet .eyes::before,
+.helmet .eyes::after {
+  height: 100%;
+  width: 33%;
+  background-color: #fefefe;
+  background-image: radial-gradient(
+    ellipse farthest-corner,
+    rgba(111, 199, 233, 0),
+    rgba(111, 199, 233, 0.2) 50%,
+    #6fc7e9
+  );
+  border-radius: 3vmin;
+}
+.helmet .eyes {
+  height: 20%;
+  width: 100%;
+  top: 40%;
+}
+.helmet .eyes::before {
+  clip-path: polygon(0 0, 10% 100%, 100% 80%, 100% 0);
+  left: 11%;
+}
+.helmet .eyes::after {
+  clip-path: polygon(0 0, 0 80%, 90% 100%, 100% 0);
+  right: 11%;
+}
+.helmet .mouth {
+  height: 100%;
+  width: 100%;
+  background-color: #7d000f;
+  clip-path: polygon(
+    30% 84%,
+    38% 76%,
+    61% 76%,
+    71% 87%,
+    71% 88%,
+    60% 77%,
+    39% 77%,
+    30% 86%
+  );
+  position: absolute;
+  top: 0;
+}
+.upper-body .left-arm .arm,
+.upper-body .right-arm .arm,
+.legs .left,
+.legs .right {
+  background-color: #dc1f29;
+  border: 0.6vmin solid #7d000f;
+  transform-origin: top center;
+  z-index: -2;
+}
+.upper-body .left-arm .arm::before,
+.upper-body .right-arm .arm::before,
+.legs .left::before,
+.legs .right::before {
+  background-color: #f7ba37;
+  border: inherit;
+}
+.upper-body .trunk .arc-reactor,
+.left-hand .palm .cannon {
+  background-color: #ca1c26;
+  border: 0.4vmin solid #7d000f;
+  border-radius: 100%;
+}
+.upper-body .trunk .arc-reactor::before,
+.left-hand .palm .cannon::before {
+  background-image: radial-gradient(circle, #fefefe, #6fc7e9);
+  border: inherit;
+  border-radius: inherit;
+}
+.upper-body .right-arm .arm .propulsion,
+.legs .left .propulsion,
+.legs .right .propulsion {
+  background-image: linear-gradient(
+    to bottom,
+    #6fc7e9,
+    rgba(111, 199, 233, 0.1) 50%,
+    transparent
+  );
+  left: 10%;
+  top: 100%;
+}
+.upper-body {
+  height: 20%;
+  width: 60%;
+  align-items: center;
+  display: flex;
+  top: -3.5%;
+  z-index: -1;
+}
+.upper-body .left-arm .shoulder,
+.upper-body .right-arm .shoulder {
+  height: 40%;
+  width: 100%;
+  background-color: #dc1f29;
+  border: 0.6vmin solid #7d000f;
+  border-radius: 100% 100% 2vmin 2vmin;
+  transform-origin: top center;
+  z-index: -1;
+}
+.upper-body .left-arm {
+  height: 100%;
+  width: 24%;
+  align-self: flex-start;
+}
+.upper-body .left-arm .shoulder {
+  transform: translateX(50%) rotateZ(35deg) rotateX(1deg);
+}
+.upper-body .left-arm .arm {
+  height: 40%;
+  width: 75%;
+  transform: translate(41%, -40%) rotateZ(15deg) rotateX(1deg);
+}
+.upper-body .left-arm .arm::before {
+  height: 100%;
+  width: 40%;
+  border-width: 0 0 0 0.6vmin;
+  right: 0;
+}
+.upper-body .trunk {
+  height: 100%;
+  width: 52%;
+  align-items: center;
+  background-color: #dc1f29;
+  border-radius: 1vmin;
+  clip-path: polygon(
+    0 0,
+    0 100%,
+    15% 100%,
+    20% 85%,
+    80% 85%,
+    85% 100%,
+    100% 100%,
+    100% 0
+  );
+  display: flex;
+  justify-content: center;
+}
+.upper-body .trunk::before {
+  height: 100%;
+  width: 100%;
+  background-color: #7d000f;
+  border-radius: inherit;
+  clip-path: polygon(
+    0 0,
+    50% 0,
+    50% 3.75%,
+    3.2% 3.75%,
+    3.2% 96.25%,
+    13.4% 96.25%,
+    18.4% 81.25%,
+    81.6% 81.25%,
+    86.6% 96.25%,
+    96.8% 96.25%,
+    96.8% 3.75%,
+    50% 3.75%,
+    50% 0,
+    100% 0%,
+    100% 100%,
+    85% 100%,
+    80% 85%,
+    20% 85%,
+    15% 100%,
+    0 100%
+  );
+  left: 0;
+  top: 0;
+}
+.upper-body .trunk .arc-reactor {
+  height: 8vmin;
+  width: 8vmin;
+}
+.upper-body .trunk .arc-reactor::before {
+  height: 6.4vmin;
+  width: 6.4vmin;
+  animation: 1.6s ease-in-out infinite alternate forwards reactor-pulse;
+  left: calc(50% - 3.2vmin);
+  top: calc(50% - 3.2vmin);
+}
+.upper-body .right-arm {
+  height: 100%;
+  width: 24%;
+  align-self: flex-start;
+}
+.upper-body .right-arm .shoulder {
+  transform: translateX(-50%) rotateZ(-35deg);
+}
+.upper-body .right-arm .arm {
+  height: 80%;
+  width: 75%;
+  transform: translate(-30%, -35%) rotateZ(-30deg) rotateX(1deg);
+}
+.upper-body .right-arm .arm::before {
+  height: 90%;
+  width: 50%;
+  border-left-width: 0;
+  border-radius: 0 0 10vmin 0;
+  left: 0;
+}
+.upper-body .right-arm .arm .propulsion {
+  height: 15vmin;
+  width: 80%;
+}
+.upper-body .right-arm .hand {
+  height: 3vmin;
+  width: 100%;
+  background-color: #dc1f29;
+  border: 0.6vmin solid #7d000f;
+  border-radius: 2vmin 3vmin 3vmin 3vmin;
+  transform: translate(38%, -240%) rotateZ(-30deg) rotateX(1deg);
+  transform-origin: top center;
+}
+.left-hand {
+  height: 8%;
+  width: 13.2%;
+  left: 20%;
+  position: absolute;
+  top: 46%;
+  z-index: 2;
+}
+.left-hand .finger-1,
+.left-hand .finger-2,
+.left-hand .finger-3,
+.left-hand .finger-4 {
+  height: 90%;
+  width: 2.7vmin;
+  background-color: #dc1f29;
+  border: 0.4vmin solid #7d000f;
+  border-radius: 2.9vmin;
+  overflow: hidden;
+  position: absolute;
+  transform-origin: bottom center;
+}
+.left-hand .finger-1::before,
+.left-hand .finger-2::before,
+.left-hand .finger-3::before,
+.left-hand .finger-4::before {
+  height: 50%;
+  width: 180%;
+  border-top: 0.5vmin solid #7d000f;
+  border-radius: 100%;
+  bottom: 25%;
+  left: -45%;
+}
+.left-hand .finger-1 {
+  transform: translate(1vmin, -40%) rotateZ(-65deg);
+}
+.left-hand .finger-2 {
+  transform: translate(1.4vmin, -70%) rotateZ(-30deg);
+}
+.left-hand .finger-3 {
+  transform: translate(3.6vmin, -70%) rotateZ(0);
+}
+.left-hand .finger-4 {
+  transform: translate(3.5vmin, -45%) rotateZ(65deg);
+  width: 2.9vmin;
+}
+.left-hand .palm {
+  height: 100%;
+  width: 100%;
+  background-color: #dc1f29;
+  border: 0.6vmin solid #7d000f;
+  border-radius: 100%;
+}
+.left-hand .palm .cannon {
+  height: 4vmin;
+  width: 4vmin;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  left: calc(50% - 2vmin);
+  perspective: 800px;
+  top: calc(50% - 2vmin);
+}
+.left-hand .palm .cannon::before {
+  height: 3vmin;
+  width: 3vmin;
+  left: calc(50% - 1.5vmin);
+  top: calc(50% - 1.5vmin);
+}
+.left-hand .palm .cannon::after {
+  height: 3vmin;
+  width: 3vmin;
+  animation: 8.6s ease-in-out infinite plasma-shot;
+  background-color: #fefefe;
+  border-radius: 100%;
+  box-shadow: 0 0 4vmin 2vmin #6fc7e9;
+  filter: blur(1px);
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+.pantsu {
+  height: 13%;
+  width: 31.2%;
+  background-color: #dc1f29;
+  border: 0.6vmin solid #7d000f;
+  border-radius: 1vmin;
+  top: -8%;
+  z-index: -2;
+}
+.legs .left,
+.legs .right {
+  height: 70%;
+  width: 38%;
+  position: absolute;
+}
+.legs .left::before,
+.legs .right::before {
+  height: 62%;
+  width: 55%;
+  top: 27%;
+}
+.legs .left::after,
+.legs .right::after {
+  height: 15%;
+  width: 130%;
+  background-color: #dc1f29;
+  border: 0.7vmin solid #7d000f;
+  border-radius: 1vmin 1vmin 2vmin 2vmin;
+  bottom: -5%;
+  left: -15%;
+}
+.legs {
+  height: 30%;
+  width: 31.2%;
+  top: -14%;
+}
+.legs .left {
+  border-radius: 3vmin 6vmin 2vmin 2vmin;
+  transform: rotateZ(5deg);
+}
+.legs .left::before {
+  border-right-width: 0;
+  border-radius: 5vmin 0 0 10vmin;
+  right: 0;
+}
+.legs .left .propulsion {
+  height: calc(100vh - 80vmin);
+  width: 80%;
+}
+.legs .right {
+  border-radius: 6vmin 3vmin 2vmin 2vmin;
+  right: 0;
+  transform: rotateZ(-5deg);
+}
+.legs .right::before {
+  border-left-width: 0;
+  border-radius: 0 5vmin 10vmin 0;
+  left: 0;
+}
+.legs .right .propulsion {
+  height: calc(100vh - 80vmin);
+  width: 80%;
+}
+@keyframes reactor-pulse {
+  to {
+    box-shadow: 0 0 2vmin 1vmin #6fc7e9;
+  }
+}
+@keyframes levitate {
+  0%,
+  50%,
+  100% {
+    transform: translateY(3%);
+  }
+  25%,
+  75% {
+    transform: translateY(-3%);
+  }
+}
+@keyframes plasma-shot {
+  93.02326% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(900px);
+  }
+}
+
+    </style>
+</head>
+<body>
+    <h1 class="contact-heading">⚡ Orakzai Contact ⚡</h1>
+    <div class="ironman">
+  <div class="ears"></div>
+  <div class="helmet">
+    <div class="eyebrowns-line"></div>
+    <div class="eyes"></div>
+    <div class="mouth"></div>
+    <div class="helmet-outline"></div>
+  </div>
+  <div class="upper-body">
+    <div class="left-arm">
+      <div class="shoulder"></div>
+      <div class="arm"></div>
+    </div>
+    <div class="trunk">
+      <div class="arc-reactor"></div>
+    </div>
+    <div class="right-arm">
+      <div class="shoulder"></div>
+      <div class="arm">
+        <div class="propulsion"></div>
+      </div>
+      <div class="hand"></div>
+    </div>
+  </div>
+  <div class="left-hand">
+    <div class="finger-1"></div>
+    <div class="finger-2"></div>
+    <div class="finger-3"></div>
+    <div class="finger-4"></div>
+    <div class="palm">
+      <div class="cannon"></div>
+    </div>
+  </div>
+  <div class="pantsu"></div>
+  <div class="legs">
+    <div class="left">
+      <div class="propulsion"></div>
+    </div>
+    <div class="right">
+      <div class="propulsion"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
