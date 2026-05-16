@@ -38,7 +38,7 @@ A simple task manager app that lets users create and read tasks.
 - fs module — handles file read/write/delete operations
 
 ### Project structure
-- `app.js` — the main backend file, contains all routes and middleware
+- `script.js` — the main backend file, contains all routes and middleware
 - `views/` — contains EJS templates for the home and read pages
 - `public/` — contains static files (CSS, etc.)
 - `files/` — where all task `.txt` files are stored
