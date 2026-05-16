@@ -1,25 +1,44 @@
 ## This repo will contain all the concept related to Express.js
 
-# Basic_express_js folder contain
+---
 
--- This folder contain concepts
--- How to Create Middleware and how to use it 
--- Dynamic routing
+### Basic_express_js
+- How to create middleware and how to use it
+- Dynamic routing
 
-# EJS folder contain
+### EJS
+- Template engine EJS
+- How to setup and run the webpage through EJS
 
--- Template Engine ejs
--- how to setup and run the webpage through ejs 
+### Static file
+- Creating different folders in public for HTML, CSS and JavaScript
+- How to connect your HTML, CSS and JavaScript files
 
-# static file 
+### Error handling
+- Contains code which deals with error handling
 
--- creating different folder in the public for html , css and javaScript
--- how to connect your html, css, javaScript files
+### Mini_Project
+- Mini project contains all the above concepts
 
-# Error handling
+---
 
--- It contain code which deals with error
+## Note Taking App — Node.js & Express
 
-# Mini_Porject 
+A simple task manager app that lets users create and read tasks.
 
--- Mini_project contain all the above concepts
+### How it works
+- The frontend contains a form where the user writes a task title and details
+- On submission, the backend creates a `.txt` file named after the title and writes the details inside it
+- All tasks are displayed on the home page and can be opened to read their content
+
+### Tech used
+- Node.js — runtime environment
+- Express.js — handles routing and middleware
+- EJS — renders dynamic HTML templates
+- fs module — handles file read/write/delete operations
+
+### Project structure
+- `app.js` — the main backend file, contains all routes and middleware
+- `views/` — contains EJS templates for the home and read pages
+- `public/` — contains static files (CSS, etc.)
+- `files/` — where all task `.txt` files are stored
