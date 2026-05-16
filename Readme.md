@@ -1,33 +1,44 @@
 ## This repo will contain all the concept related to Express.js
 
-# Basic_express_js folder contain
+---
 
--- This folder contain concepts
--- How to Create Middleware and how to use it 
--- Dynamic routing
+### Basic_express_js
+- How to create middleware and how to use it
+- Dynamic routing
 
-# EJS folder contain
+### EJS
+- Template engine EJS
+- How to setup and run the webpage through EJS
 
--- Template Engine ejs
--- how to setup and run the webpage through ejs 
+### Static file
+- Creating different folders in public for HTML, CSS and JavaScript
+- How to connect your HTML, CSS and JavaScript files
 
-# static file 
+### Error handling
+- Contains code which deals with error handling
 
--- creating different folder in the public for html , css and javaScript
--- how to connect your html, css, javaScript files
+### Mini_Project
+- Mini project contains all the above concepts
 
-# Error handling
+---
 
--- It contain code which deals with error
+## Note Taking App — Node.js & Express
 
-# Mini_Porject 
+A simple task manager app that lets users create and read tasks.
 
--- Mini_project contain all the above concepts
+### How it works
+- The frontend contains a form where the user writes a task title and details
+- On submission, the backend creates a `.txt` file named after the title and writes the details inside it
+- All tasks are displayed on the home page and can be opened to read their content
 
-# Note taking App
+### Tech used
+- Node.js — runtime environment
+- Express.js — handles routing and middleware
+- EJS — renders dynamic HTML templates
+- fs module — handles file read/write/delete operations
 
--- This contain the frontend where the user write the note 
--- The backend where the front end data as in our case we use -- from to write the note so it get the from and create a file --  from the form title and write the content inside it writen -- in the textarea 
---> The project contain the middleware and fs node module to do 
--- the read/write operation and error handling to handle the -- -- error 
---> In the script.js file contain the backend of the project --the code is has comment when you read it you will get the --work flow of the project 
+### Project structure
+- `app.js` — the main backend file, contains all routes and middleware
+- `views/` — contains EJS templates for the home and read pages
+- `public/` — contains static files (CSS, etc.)
+- `files/` — where all task `.txt` files are stored
