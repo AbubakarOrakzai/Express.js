@@ -22,7 +22,10 @@
                 <% files.forEach(function(file) { %>
                     <div class="task w-52 px-4 py-5 rounded-md bg-zinc-800">
                         <h1 class="text-white text-xl font-bold mb-3"><%= file.replace('.txt', '') %></h1>
-                        <a class="text-blue-500 text-sm hover:text-blue-400 transition" href="/read/<%= file %>">Read More →</a>
+                        <div class="flex w-full justify-between items-center mt-3">
+                            <a class="text-blue-500 text-sm hover:text-blue-400 transition" href="/read/<%= file %>">Read More →</a>
+                            <a class="text-zinc-400 text-sm hover:text-zinc-300 transition" href="/edit/<%= file %>">Edit</a>  <!-- ✅ fixed: file instead of val, fixed closing tag -->
+                        </div>
                     </div>
                 <% }); %>
             <% } else { %>

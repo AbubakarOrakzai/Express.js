@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900 flex p-10 text-white flex-col">
+        <a class="text-blue-500 inline-block mb-10" href="/">Go back to home page</a>
+
+        <!-- form for editing the task -->
+        <form action="/edit" method="POST" class="flex flex-col gap-4">
+            <input type="text" name="previous" value="<%= filename %>"
+                class="block w-full px-4 py-3 text-white bg-zinc-800 border border-zinc-700 rounded-md placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                placeholder="Previous name">
+
+            <input type="text" name="new"
+                class="block w-full px-4 py-3 text-white bg-zinc-800 border border-zinc-700 rounded-md placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition mt-2"
+                placeholder="New name">
+
+            <input type="submit" value="Update Name"
+                class="w-fit px-5 py-2 bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white font-medium rounded-md cursor-pointer transition-all duration-150">
+        </form>
+    </div>
+</body>
+</html>
