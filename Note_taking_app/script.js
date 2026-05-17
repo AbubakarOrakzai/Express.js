@@ -31,6 +31,46 @@ app.get('/', (req, res) => {
     });
 });
 
+// This is function is used to read the file and then render the show.ejs file and pass the title and content of the file to the template and handle the error if any error occurs while reading the file.
+app.get('/read/:filename', (req, res) => {
+    const filename = req.params.filename;
+    fs.readFile(`./files/${filename}`, 'utf8', function(err, data) {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Error reading file');
+        }
+        res.render('show', {        
+            title: filename.replace('.txt', ''), 
+            content: data,
+            filename: filename
+        });
+    });
+});
+
+app.get('/edit/:filename',(req,res)=>{
+    res.render("edit",{filename: req.params.filename})
+})
+
+
+app.post('/edit', function(req, res) {
+    fs.rename(                                         
+        `./files/${req.body.previous}`,                
+        `./files/${req.body.new}.txt`,                 
+        function(error) {
+            if (error) {
+                console.error(error);
+                return res.status(500).send('Error renaming file');
+            }
+            res.redirect("/");
+        }
+    );
+});
+
+
+
+
+
+
 // This route handler is used to create file and then write data in it 
 app.post('/create', (req, res) => {
     // This line take the title from the request body split it to array and then convert it to string through the join 
