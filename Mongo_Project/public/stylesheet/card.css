@@ -1,0 +1,43 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body, html{
+    width: 100%;
+    height: 100%;
+}
+.containeri{
+        display:flex;
+        flex-direction: row;
+}
+.card{
+      margin: 10px;
+      padding: 20px;
+      height: 250px;
+      width: 250px;
+      background-color: black;
+      border-radius: 50px;
+      color: white;
+}
+.profile{
+    height: 125px;
+    width: 250px;
+    background-color: red;
+    border-radius: 8px;
+    color: white;
+}
+.data{
+    margin-top: 10px;
+}
+.data input{
+    margin-top:8px;
+    padding: 2px;
+    border-radius: 5px;
+    border: none;
+    background-color: red;
+}
+.nav a{
+      text-decoration: none;
+      color: black;
+
+}
