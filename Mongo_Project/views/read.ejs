@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheet/card.css">
+</head>
+<body>
+    <h1>See All Users</h1>
+    <div class="nav">
+       <a href="/">Back to home page</a>
+    </div>
+    <hr style="border: 2px solid black;">
+    
+    <div class="containeri">
+        <% if(users && users.length > 0) { %>
+            <% users.forEach(user => { %>
+                <div class="card">
+                    <div class="profile">
+                        <% if(user.image) { %>
+                            <img src="<%= user.image %>" alt="Profile" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                        <% } else { %>
+                            <div style="width: 100px; height: 100px; background: #ccc; border-radius: 50%;"></div>
+                        <% } %>
+                    </div>
+                    <div class="data">
+                        <h3>Name: <%= user.name %></h3>
+                        <h5>Email: <%= user.email %></h5>
+                        <form action="/edit/<%= user._id %>" method="GET" style="display: inline;">
+                            <input type="submit" value="Edit">
+                        </form>
+                        <form action="/delete/<%= user._id %>" method="POST" style="display: inline;">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No users found. <a href="/">Create a user</a></p>
+        <% } %>
+    </div>
+</body>
+</html>
