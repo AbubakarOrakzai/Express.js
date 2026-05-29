@@ -61,3 +61,7 @@ A simple task manager app that lets users create and read tasks.
 - `public/` — contains static files (CSS, etc.)
 - `files/` — where all task `.txt` files are stored
 
+
+### cookie
+- how to setup an cookie
+- Display the cookie on different route
