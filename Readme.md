@@ -65,3 +65,8 @@ A simple task manager app that lets users create and read tasks.
 ### cookie
 - how to setup an cookie
 - Display the cookie on different route
+
+### Bcrypt
+- This project demonstrates the use of bcrypt in Node.js for secure password hashing and comparison. It includes
+- examples of generating hashed passwords using salt rounds and verifying user passwords during authentication.
+- The project helps understand how bcrypt improves security by preventing plain-text password storage in databases.
