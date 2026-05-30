@@ -70,3 +70,10 @@ A simple task manager app that lets users create and read tasks.
 - This project demonstrates the use of bcrypt in Node.js for secure password hashing and comparison. It includes
 - examples of generating hashed passwords using salt rounds and verifying user passwords during authentication.
 - The project helps understand how bcrypt improves security by preventing plain-text password storage in databases.
+
+## JWT Authentication
+
+- JWT (JSON Web Token) solves HTTP's stateless problem by storing user data (email, id) inside a signed token.
+- After login, the token is stored in a cookie and sent with every request. 
+- The server verifies the token using a secret key (never exposed to client) - no database lookups or repeated 
+- passwords needed.
