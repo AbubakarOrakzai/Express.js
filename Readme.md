@@ -77,3 +77,7 @@ A simple task manager app that lets users create and read tasks.
 - After login, the token is stored in a cookie and sent with every request. 
 - The server verifies the token using a secret key (never exposed to client) - no database lookups or repeated 
 - passwords needed.
+
+## Authenication_Authorization
+- Secure authentication backend with bcrypt password hashing, JWT tokens, and cookie storage.
+- Features include user registration, login/logout, and protected dashboard routes.
