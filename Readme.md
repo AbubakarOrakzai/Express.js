@@ -81,3 +81,8 @@ A simple task manager app that lets users create and read tasks.
 ## Authenication_Authorization
 - Secure authentication backend with bcrypt password hashing, JWT tokens, and cookie storage.
 - Features include user registration, login/logout, and protected dashboard routes.
+
+## Data_Association 
+- Implement bidirectional data association between User and Post models using MongoDB
+- references. This establishes a relationship where users can have multiple posts, and
+- each post belongs to a single user.
