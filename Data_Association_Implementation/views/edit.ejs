@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<style>
+    *{
+        margin: 0%;
+        padding: 0%;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+        background-color: lightskyblue;
+    }
+    .container{
+        margin: 10px;
+    }
+    
+    .post {
+        border: 2px solid black;
+        margin: 20px 10px;
+        padding: 15px;
+        border-radius: 15px;
+        background-color: white;
+    }
+    
+    .postcontainer {
+        border: none;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+    }
+    
+    .postcontainer:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+    
+    .postcontainer h4 {
+        color: #ffd700;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    
+    .postcontainer p {
+        color: white;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 10px 0;
+    }
+    
+    .postcontainer div a {
+        color: #ffd700;
+        text-decoration: none;
+        margin-right: 15px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .postcontainer div a:hover {
+        background-color: rgba(255,255,255,0.2);
+        text-decoration: underline;
+    }
+    
+    h3 {
+        color: #333;
+    }
+    
+    h5 {
+        color: #555;
+    }
+</style>
+<body>
+    <div class="container">
+        <h3>Welcome <%= post.user.name %></h3>
+        <h3><%= post.user.email %></h3>
+        <h5>Edit your post</h5>
+        <form method="POST" action="/update/<%= post._id %>">
+            <textarea style="height: 200px; width: 300px; border-radius: 20px; border: none; padding: 10px;" placeholder="what on your mind ?" name="content"><%= post.content %></textarea>
+            <br>
+            <input style="background-color:yellow; color: black; border-radius: 10px; width: 80px; height:25px;" type="submit" value="update">
+        </form>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="post">
+        <h3>Your Posts.</h3>
+        <% if(post.user && post.user.posts && post.user.posts.length > 0) { %>
+            <% post.user.posts.reverse().forEach(function(p){ %>
+                <div class="postcontainer">   
+                    <h4><%= post.user.username %></h4>
+                    <p><%= p.content %></p> 
+                    <small><%= p.likes ? p.likes.length : 0 %> likes</small>
+                    <a href="/like/<%= p._id %>">
+                        <%= p.likes && p.likes.indexOf(post.user._id) == -1 ? "Like" : "Unlike" %>
+                    </a>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>  
+</body>
+</html>
