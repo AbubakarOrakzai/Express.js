@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<style>
+    *{
+        margin: 0%;
+        padding: 0%;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+        background-color: lightskyblue;
+    }
+    .container{
+        margin: 10px;
+    }
+    
+    .post {
+        border: 2px solid black;
+        margin: 20px 10px;
+        padding: 15px;
+        border-radius: 15px;
+        background-color: white;
+    }
+    
+    .postcontainer {
+        border: none;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+    }
+    
+    .postcontainer:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+    
+    .postcontainer h4 {
+        color: #ffd700;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    
+    .postcontainer p {
+        color: white;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 10px 0;
+    }
+    
+    .postcontainer div a {
+        color: #ffd700;
+        text-decoration: none;
+        margin-right: 15px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .postcontainer div a:hover {
+        background-color: rgba(255,255,255,0.2);
+        text-decoration: underline;
+    }
+    
+    h3 {
+        color: #333;
+    }
+    
+    h5 {
+        color: #555;
+    }
+</style>
+<body>
+    <div class="container">
+        <h3>Welcome <%= user.name %></h3>
+        <h3><%= user.email %></h3>
+        <h5>You can create a new post</h5>
+        <form method="post" action="/post">
+            <textarea style="height: 200px; width: 300px; border-radius: 20px; border: none; padding: 10px;" placeholder="what on your mind ?" name="content"></textarea>
+            <br>
+            <input style="background-color:black; color: white; border-radius: 10px; width: 60px; height:20px;" type="submit" value="Post">
+        </form>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="post">
+        <h3>Your Posts.</h3>
+        <% if(user.posts && user.posts.length > 0) { %>
+            <% user.posts.reverse().forEach(function(post){ %>
+                <div class="postcontainer">   
+                    <h4><%= user.username %></h4>
+                    <p><%= post.content %></p> 
+                    <small><%= post.likes ? post.likes.length : 0 %> likes</small>
+                    <div>
+                        <a href="/like/<%= post._id %>">
+                            <%= post.likes && post.likes.indexOf(user._id) == -1 ? "Like" : "Unlike" %>
+                        </a>
+                        <a href="/edit/<%= post._id %>">Edit</a>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <div class="postcontainer">
+                <p>No posts yet. Create your first post!</p>
+            </div>
+        <% } %>
+    </div>  
+</body>
+</html>
